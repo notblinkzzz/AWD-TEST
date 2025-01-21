@@ -19,7 +19,7 @@
 
 <!-- TODO: Change the zyx-0314 into your github username  -->
 <!-- TODO: Change the WD-Template-Project into the same name of your folder -->
-![](https://visit-counter.vercel.app/counter.png?page=notblinkzzz/WD-Template-Project)
+![](https://visit-counter.vercel.app/counter.png?page=notblinkzzz/AWD-TEST)
 
 ---
 
