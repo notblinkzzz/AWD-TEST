@@ -1,18 +1,67 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navItems = document.querySelectorAll('.nav-item');
+// variable declaration
+const valueInput = document.getElementById('value');
+const nameInput = document.getElementById('name');
+const tableOutput = document.getElementById('transaction-list');
 
-    navItems.forEach(item => {
-        item.addEventListener('mouseover', function() {
-            item.style.backgroundColor = 'green';
-            item.style.transition = 'background-color 0.3s ease';
-        });
+let counter = JSON.parse(localStorage.getItem('counter')) || 0;
 
-        item.addEventListener('mouseout', function() {
-            item.style.backgroundColor = '';
-        });
+// let transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+let transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
 
-        item.addEventListener('click', function() {
-            alert(`You clicked on ${item.textContent}`);
-        });
+// if (transactionList.length > 0) {
+//     transactionList.forEach(transaction => {
+//         TableRowCreator(transaction);
+//     });
+// }
+
+if (transactionList.length > 0) {
+    transactionList.forEach(transaction => {
+        TableRowCreator({id: transaction.id, ...transaction})
     });
-});
+}
+
+function TableRowCreator(transaction) {
+    const newRow = document.createElement('tr');
+    newRow.id = transaction.id;
+    newRow.innerHTML = `
+        <td>${transaction.id + 1}</td>
+        <td>${transaction.name}</td>
+        <td>${transaction.value}</td>
+        <td>
+            <button onClick='DeleteFunction(${transaction.id})'>X</button>
+        </td>
+    `;
+    tableOutput.appendChild(newRow);
+}
+
+function AddTransaction() {
+
+    TableRowCreator({
+        id: counter,
+        name: nameInput.value,
+        value: valueInput.value
+    });
+
+    transactionList.push({
+        id: counter,
+        name: nameInput.value,
+        value: valueInput.value
+    });
+
+    localStorage.setItem('transactionList', JSON.stringify(transactionList));
+    localStorage.setItem('counter', JSON.stringify(counter));
+
+    valueInput.value = 0;
+    nameInput.value = '';
+
+    counter++;
+}
+
+function DeleteFunction(id) {
+    transactionList = transactionList.filter(transaction => transaction.id !== id);
+
+    document.getElementById(id).remove();
+
+    localStorage.setItem('transactionList', JSON.stringify(transactionList));
+    localStorage.setItem('counter', JSON.stringify(counter));
+}

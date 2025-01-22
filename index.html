@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test here for module 1</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-    <title>Test</title>
 </head>
 <body>
-    <nav class="sidebar">
-        <ul>
-            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-    </nav>
-    <script src="./assets/js/app.js"></script>
+    <!-- Input Group -->
+    <div class="group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <label for="value">Value</label>
+        <input type="number" name="value" id="value">
+        <button id="add" onclick="AddTransaction()">Add</button>
+    </div>
+
+    <!-- Output Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="transaction-list">
+        </tbody>
+    </table>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
