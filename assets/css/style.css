@@ -70,11 +70,64 @@ svg {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
     background-color: var(--clr-secondary-bg);
     color: var(--clr-primary-text);
     font-size: 16px;
     font-weight: var(--fw-regular);
     line-height: 1.5;
     overflow-x: hidden;
+}
 
+.group {
+    width: 50%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1rem;
+    /* background-color: grey; */
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+
+    input {
+        /* background-color: red; */
+        border-radius: 50px;
+        text-align: center;
+    }
+    #add {
+        border-radius: 50px;
+        width: 100px;
+
+    }
+}
+table {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(255, 0, 0, 0.459);
+    width: 50%;     
+
+        thead {
+            display: flex;
+
+            justify-content: space-evenly;
+            width: 100%;
+            background-color: green;
+        }
+
+        tr {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            a
+        }
+
+        tbody {
+            width: 100%;
+            background-color: yellow;
+        }
 }

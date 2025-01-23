@@ -64,4 +64,24 @@ function DeleteFunction(id) {
 
     localStorage.setItem('transactionList', JSON.stringify(transactionList));
     localStorage.setItem('counter', JSON.stringify(counter));
+
+    counter--;
+}
+function UpdateTableIndices() {
+    const rows = tableOutput.getElementsByTagName('tr');
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].getElementsByTagName('td')[0].innerText = i + 1;
+    }
+}
+
+function DeleteFunction(id) {
+    transactionList = transactionList.filter(transaction => transaction.id !== id);
+
+    document.getElementById(id).remove();
+
+    localStorage.setItem('transactionList', JSON.stringify(transactionList));
+    localStorage.setItem('counter', JSON.stringify(counter));
+
+    UpdateTableIndices();
+    counter--;
 }
